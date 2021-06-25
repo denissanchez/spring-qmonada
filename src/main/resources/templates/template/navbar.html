@@ -39,6 +39,10 @@
 							</li>
 						</ul>
 					</div>
+					
+					<div sec:authorize="!hasAuthority('ADMIN')" class="nav-item float-right">
+						<a class="nav-link" href="/citas/">Iniciar sesión</a>
+					</li>
 				</div>
 			</nav>
 		</header>
