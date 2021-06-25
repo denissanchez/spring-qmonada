@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es" xmls:th="http://thymeleaf.org">
+  <head>
+  	<div th:replace="template/header :: header"></div>
+  </head>
+  <body>
+  <div class="site-wrapper">
+  	<div th:replace="template/navbar :: navbar"></div>
+  	<div class="container">
+	    <h1>Registrar una cita</h1>
+		<div class="row">
+			<div class="col-5">
+				<form action="/citas/registrar" class="contact-form" method="POST">
+					<div class="row">
+						<div class="column col-md-12 my-1">
+							<label>Servicio</label>
+							<select class="form-control"name="servicio" placecholder="Servicio" required>
+								<option value="" selected disabled>--- SELECCIONAR ---</option>
+								<option th:each="servicio: ${servicios}" th:value="${servicio.titulo}" th:text="${servicio.titulo}"></option>
+							</select>
+						</div>
+						<div class="column col-md-6 my-1">
+							<label>Nombres</label>
+							<input type="text" class="form-control" name="nombres" placeholder="Nombres" required autocomplete="off"/>
+						</div>
+						<div class="column col-md-6 my-1">
+							<label>Apellidos</label>
+							<input type="text" class="form-control" name="apellidos" placeholder="Apellidos" required autocomplete="off"/>
+						</div>
+						<div class="column col-md-6 my-1">
+							<label>Fecha y hora</label>
+							<input type="datetime-local" class="form-control" name="datetime" th:value="${minDate}" th:min="${minDate}" placecholder="Fecha y hora" required/>
+						</div>
+						<div class="column col-md-12 my-1">
+							<label>Comentario</label>
+							<textarea class="form-control" name="comentario" placeholder="Comentario" rows="4" autocomplete="off"></textarea>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary mt-3">Registrar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+  </div>
+  </body>
+</html>

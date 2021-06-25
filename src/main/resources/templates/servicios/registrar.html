@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es" xmls:th="http://thymeleaf.org">
+  <head>
+	<div th:replace="template/header :: header"></div>
+  </head>
+  <body>
+  	<div class="site-wrapper">
+  		<div th:replace="template/navbar :: navbar"></div>
+  		<div class="container">
+		    <h1>Registrar servicio</h1>
+			<div class="row">
+				<div class="col-5">
+					<form action="/servicios/registrar" class="contact-form" method="POST">
+						<div class="row">
+							<div class="column col-md-12 my-1">
+								<label>Titulo</label>
+								<input type="text" class="form-control" name="titulo" autocomplete="off" />
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary mt-3">Registrar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+  	</div>
+  </body>
+</html>

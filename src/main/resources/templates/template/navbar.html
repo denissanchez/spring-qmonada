@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmls:th="http://thymeleaf.org" xmls:sec="http://thymeleaf.org/extras/spring-security">
+  <body>
+	<div th:fragment="navbar">
+		<header class="header-default py-3">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-xl">
+					<!-- site logo -->
+					<a class="navbar-brand" href="index.html"><img th:src="@{~/images/logo.jpeg}" alt="logo" style="max-height: 120px;" /></a> 
+	
+					<div class="collapse navbar-collapse">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="/">Inicio</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/citas/registrar/">Registrar cita</a>
+							</li>
+							<li sec:authorize="hasAuthority('ADMIN')" class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="/servicios/">Servicios</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="/servicios/">Ver servicios</a></li>
+									<li><a class="dropdown-item" href="/servicios/registrar/">Registrar</a></li>
+								</ul>
+							</li>
+							<li sec:authorize="hasAuthority('ADMIN')" class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="/productos/">Productos</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="/productos/">Ver productos</a></li>
+									<li><a class="dropdown-item" href="/productos/registrar/">Registrar</a></li>
+								</ul>
+							</li>
+							<li sec:authorize="hasAuthority('ADMIN')" class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="/citas/">Citas</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="/citas/pendientes/">Pendientes</a></li>
+									<li><a class="dropdown-item" href="/citas/">Todas las citas</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+	</div>
+  </body>
+</html>

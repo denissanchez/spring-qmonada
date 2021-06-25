@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es" xmls:th="http://thymeleaf.org">
+  <head>
+	<div th:replace="template/header :: header"></div>
+  </head>
+  <body>
+	  <div class="site-wrapper">
+	  	<div th:replace="template/navbar :: navbar"></div>
+  		
+  		<h1 class="text-center my-3">Productos</h1>
+  		
+		<section class="main-content mt-2">
+			<div class="container-xl">
+				<div class="row gy-4">
+					<div class="col">
+						<div class="row gy-4">
+							<div class="col">
+								<div class="row gy-4">
+		                        	<div class="col-sm-4" th:each="producto: ${productos}">
+		                        		<div class="post post-grid rounded bordered">
+		                        		<div class="details">
+		                                    <ul class="meta list-inline mb-0">
+		                                        <li class="list-inline-item"><img th:src="${producto.linkImagen}" class="author" alt="author"></li>
+		                                    </ul>
+		                                    <h5 class="post-title mb-3 mt-3" th:text="${producto.titulo}"></h5>
+		                                    <p class="excerpt mb-0" th:text="'S/ ' + ${producto.precio}"></p>
+		                                </div>
+		                    		</div>
+		                    	</div>
+		                	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	  </div>
+  </body>
+</html>
+

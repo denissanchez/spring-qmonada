@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es" xmls:th="http://thymeleaf.org">
+  <head>
+	<div th:replace="template/header :: header"></div>
+  </head>
+  <body>
+  	<div class="site-wrapper">
+  		<div th:replace="template/navbar :: navbar"></div>
+  		<div class="container">
+		    <h1>Lista de servicios</h1>
+			<div class="row">
+				<div class="col mx-auto">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Titulo</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="servicio: ${servicios}">
+								<td th:text="${servicio.titulo}"></td>
+								<td>
+									<a class="btn btn-danger btn-sm" th:href="@{'/servicios/eliminar/'+${servicio.id}}">Eliminar</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+  	</div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es" xmls:th="http://thymeleaf.org">
+  <head>
+    <div th:replace="template/header :: header"></div>
+  </head>
+  <body>
+  	<div class="site-wrapper">
+	  	<div th:replace="template/navbar :: navbar"></div>
+	  	<div class="container">
+		    <h1>Detalle de cita</h1>
+			<div class="row">
+				<div class="column col-md-8 my-1">
+					<label>Servicio</label>
+					<input type="text" class="form-control" name="nombres" th:value="${cita.servicio}" disabled/>
+				</div>
+				<div class="column col-md-4 my-1">
+					<label>Estado</label>
+					<input type="text" class="form-control" name="nombres" th:value="${cita.estado}" disabled/>
+				</div>
+				<div class="column col-md-4 my-1">
+					<label>Nombres</label>
+					<input type="text" class="form-control" name="nombres" th:value="${cita.nombres}" disabled/>
+				</div>
+				<div class="column col-md-4 my-1">
+					<label>Apellidos</label>
+					<input type="text" class="form-control" name="apellidos" th:value="${cita.apellidos}" disabled/>
+				</div>
+				<div class="column col-md-4 my-1">
+					<label>Fecha y hora</label>
+					<input type="datetime-local" class="form-control" name="datetime" th:value="${cita.datetime}" disabled/>
+				</div>
+				<div class="column col-md-12 my-1">
+					<label>Comentario</label>
+					<textarea class="form-control" name="comentario" th:text="${cita.comentario}" disabled></textarea>
+				</div>
+			</div>
+		</div>
+  	</div>
+  </body>
+</html>
